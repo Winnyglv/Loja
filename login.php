@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +9,10 @@
 </head>
 <body>
  <div class="container">
+ <div class="jumbotron">
     <div class="panel panel-default">
         <div class="panel-heading text-center">LOGIN</div>
-        <div class="panel-body">
+        <div class="panel-body"> 
 <form action="" method="POST">
     <div class="input-group">
         <span class="input-group-addon">
@@ -29,6 +30,7 @@
         <input type="submit" name="btn" value="ENTRAR" class="btn btn-success">
     
     </form>
+        </div>
         </div>
    </div>
  </div>

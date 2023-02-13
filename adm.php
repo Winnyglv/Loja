@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,10 @@
 require_once ("conectar.php");
 $sql = "SELECT * FROM cadastros";
 $exibe = mysqli_query($con, $sql );
-echo "<table border='1'>
+echo "
+<div class='container'>
+<div class='jumbotron'>
+<table class='table table-bordered'>
     <tr>
     <th>  id   </th>
     <th>  email   </th>
@@ -55,7 +58,7 @@ while($linha = mysqli_fetch_array($exibe))
     <td>$linha[18]</td>
     </tr>";
 }
-echo "</table>";
+echo "</table></div></div>";
 
 ?>
 </body>

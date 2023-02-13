@@ -1,5 +1,56 @@
-
 .jumbotron{
 background-color: rgb(245, 248, 251);
 }
+footer{
+    width:100%;
+    min-height:45px;
+    background-color: rgb(196, 237, 237);
+    display: flex;
+}
+footer .boxs{
+    width:320px;
+    min-height:50px;
+    padding:20px;
+}
+footer .boxs:nth-child(4){
+    width: 400px;
+}
+.box h2{
+    color: rgb(248, 247, 249);
+    margin-bottom:20px ;
+}
+.box ul li
+{
+margin:10 px 0px;
+list-style:none;
+}
+.box ul li a {
+    color:antiquewhite;
+    text-decoration: none;
+}
+.container{
+    max-width: 1400px;
+    padding: 0 4%;
+    margin: auto;
+}
+.card-footer{
+    width:50%;
+    height: auto;
+}
+body{
+    font-family: "Times New Roman";
+    background-color: #F2FFFC;
+}
+h1{
+    text-align: center;
+    background-color: #dddefb;
+    font-family: "Open Sans Condesed", sans-serif;
+}
+h2{
+    font-family: "Open Sans Condesed", sans-serif;
 
+}
+p{
+    text-align: justify;
+    font-family: "Crinsom Text";
+}
