@@ -9,8 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-    <main><h1 class="title">CADASTRO DE CLIENTES</h1></main><br>
+    <header>
 
+    </header>
+
+    <main><h1 class="title">CADASTRO DE CLIENTES</h1></main><br>
+<div class="site-content">
     <div class="container">
  <div class="row">
     <div class="jumbotron">
@@ -42,10 +46,10 @@
     <input type="text" name="telefone2"class="form-control"><br>
     </div>
     <div class="col-md-6">Escolha uma senha:
-    <input type="password" name="senha"class="form-control"><br>
+    <input type="password" name="senha" class="form-control"><br>
     </div>
     <div class="col-md-6">Redigite:
-    <input type="password" name="redigite"class="form-control"><br>
+    <input type="password" name="redigite" class="form-control"><br>
     </div>
     <div class="col-md-4">CEP:
     <input type="text" name="cep"class="form-control">
@@ -103,26 +107,27 @@
     <input type="text" name="cidade" class="form-control"> <br>
     </div></form>
     <input type="submit" name="btn" value="CADASTRAR">
+    <input type="hidden" name="form" value="f_form">
  </div>
 </div>
 </div>
-
+</div>
     <?php 
 require_once ("conectar.php");
-if(isset($_POST['btn']))
+if(isset($_POST['submit']) && $_POST['form'] == 'f_form')
     { 
       if(
             empty ($_POST['nome'])
             or
-            empty ($_POST['cpf'])
-            or
             empty ($_POST['senha'])
-          or
-          empty ($_POST['redigite'])
+            or
+            empty ($_POST['redigite'])
        )
     {
-            echo"Os campos: Nome,CPF e Senha são obrigatorios! Confira os dados antes de finalizar o cadastro.";
+            echo"Todos os campos são obrigatórios. Confira os dados antes de finalizar o cadastro.";
             exit;
+    } else {
+        header('Location:telainicial.php');
     }
     };
     
@@ -149,6 +154,47 @@ $sql = "INSERT INTO cadastros
 (email,nome,cpf,rg,nascimento,sexo,telefone,telefone2,senha,redigite,cep,tipo,rua,numero,complemento,bairro,estado,cidade)
 VALUES ('$email', '$nome', '$cpf', '$rg', '$nascimento', '$sexo', '$telefone', '$telefone2', '$senha', '$redigite', '$cep', '$tipo', '$rua','$numero', '$complemento','$bairro','$estado','$cidade')";
 mysqli_query($con, $sql);
+
 ?>
+
+
+
+<footer>
+<div class="boxs">
+    <h2>Inicio</h2>
+<ul>
+<li><a href="telainicial.php">Home</a></li>
+<li><a href="formulario.php">Cadastre-se</a></li>
+<li><a href="">Produtos</a></li>
+</ul>
+</div>
+
+<div class="boxs">
+    <h2>Redes Sociais</h2>
+<ul>
+<li><a href="https://www.facebook.com/profile.php?id=100054443501375&mibextid=ZbWKwL">Facebook</a></li>
+<li><a href="https://instagram.com/vestindoestacoes?igshid=YmMyMTA2M2Y=">Instragram</a></li>
+</ul>
+</div>
+
+<div class="boxs">
+    <h2>Contato</h2>
+<ul>
+<li><a href="">Telefone</a></li>
+<li><a href="winnysouza83@gmail.com">Email</a></li>
+<li><a href="https://wa.me/qr/DKHXDPYTP5FGN1">Whatsapp</a></li>
+</ul> 
+</div>
+
+<div class="boxs">
+    <h2>Nossa Empresa</h2>
+<ul>
+<li><a href="">Duvidas Frequentes</a></li>
+<li><p>Rua: xxxxx, N°xx 12345-678 - Jd. xxxxx</p></li>
+<li><p>ATENDIMENTO: Segunda á Sexta das 8h as 18h</p></li>
+</ul> 
+</div>
+
+ </footer>
 </body>
 </html>

@@ -9,15 +9,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
- <header>
-<div class="btn-group">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"> Menu </button> //
+
+<header>
+      <main><h1 class="title">Vestindo as Estações</h1></main><br>
+
+  <div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+    Dropdown form
+  </button>
+  <form class="dropdown-menu p-4">
+    <div class="mb-3">
+      <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+        <label class="form-check-label" for="dropdownCheck2">
+          Remember me
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+</div>
+</header>
+
+
+<div class="site-content">
 
 </div>
- </header>
 
 
  <footer>
+    
 <div class="boxs">
     <h2>Inicio</h2>
 <ul>
@@ -52,6 +81,7 @@
 <li><p>ATENDIMENTO: Segunda á Sexta das 8h as 18h</p></li>
 </ul> 
 </div>
+
  </footer>
 </body>
 </html>

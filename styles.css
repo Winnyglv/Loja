@@ -11,6 +11,7 @@ footer .boxs{
     width:320px;
     min-height:50px;
     padding:20px;
+    flex-grow: 1;
 }
 footer .boxs:nth-child(4){
     width: 400px;
@@ -37,6 +38,7 @@ list-style:none;
     width:50%;
     height: auto;
 }
+
 body{
     font-family: "Times New Roman";
     background-color: #F2FFFC;
@@ -53,4 +55,7 @@ h2{
 p{
     text-align: justify;
     font-family: "Crinsom Text";
+}
+.site-content{
+    flex: 1;
 }

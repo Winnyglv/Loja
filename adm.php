@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+<main>
+    <div class="site-content">
  <?php
 require_once ("conectar.php");
 $sql = "SELECT * FROM cadastros";
@@ -35,7 +37,7 @@ echo "
     <th>  bairro   </th>
     <th>  estado   </th>
     <th>  cidade   </th>
-    </tr";
+    </tr>";
 while($linha = mysqli_fetch_array($exibe))
 { echo "
     <tr>
@@ -59,7 +61,46 @@ while($linha = mysqli_fetch_array($exibe))
     </tr>";
 }
 echo "</table></div></div>";
-
 ?>
+</div>
+</main>
+<footer>
+    
+<div class="boxs">
+    <h2>Inicio</h2>
+<ul>
+<li><a href="telainicial.php">Home</a></li>
+<li><a href="formulario.php">Cadastre-se</a></li>
+<li><a href="">Produtos</a></li>
+</ul>
+</div>
+
+<div class="boxs">
+    <h2>Redes Sociais</h2>
+<ul>
+<li><a href="https://www.facebook.com/profile.php?id=100054443501375&mibextid=ZbWKwL">Facebook</a></li>
+<li><a href="https://instagram.com/vestindoestacoes?igshid=YmMyMTA2M2Y=">Instragram</a></li>
+</ul>
+</div>
+
+<div class="boxs">
+    <h2>Contato</h2>
+<ul>
+<li><a href="">Telefone</a></li>
+<li><a href="winnysouza83@gmail.com">Email</a></li>
+<li><a href="https://wa.me/qr/DKHXDPYTP5FGN1">Whatsapp</a></li>
+</ul> 
+</div>
+
+<div class="boxs">
+    <h2>Nossa Empresa</h2>
+<ul>
+<li><a href="">Duvidas Frequentes</a></li>
+<li><p>Rua: xxxxx, N°xx 12345-678 - Jd. xxxxx</p></li>
+<li><p>ATENDIMENTO: Segunda á Sexta das 8h as 18h</p></li>
+</ul> 
+</div>
+
+ </footer>
 </body>
 </html>
