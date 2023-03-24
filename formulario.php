@@ -1,5 +1,5 @@
  <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-    <header>
-
-    </header>
-
+    
     <main><h1 class="title">CADASTRO DE CLIENTES</h1></main><br>
 <div class="site-content">
     <div class="container">
@@ -20,19 +17,19 @@
     <div class="jumbotron">
 <form method="post" class="row g-3">
 <div class="col-md-6">Email:
-<input type="text"name="email" class="form-control"><br>
+<input type="text" name="email" class="form-control"><br>
 </div>
 <div class="col-md-6">Nome Completo:
     <input type="text" name="nome" class="form-control"><br>
     </div>
     <div class="col-md-6">CPF:
-    <input type="text" name="cpf"class="form-control"><br>
+    <input type="text" name="cpf" class="form-control"><br>
     </div>
     <div class="col-md-6"> R.G
     <input type="text" name="rg" class="form-control"><br>
     </div>
     <div class="col-md-4">Data de Nascimento
-    <input type="date" name="nascimento" placeholder="dia/mês/ano" class="form-control">
+    <input type="date" name="nascimento" class="form-control">
     </div>
     <div class="col-12">
 <br>Sexo:<br>
@@ -43,7 +40,7 @@
     <input type="text" name="telefone" class="form-control"><br>
     </div>
     <div class="col-md-6"> Telefone
-    <input type="text" name="telefone2"class="form-control"><br>
+    <input type="text" name="telefone2" class="form-control"><br>
     </div>
     <div class="col-md-6">Escolha uma senha:
     <input type="password" name="senha" class="form-control"><br>
@@ -52,7 +49,7 @@
     <input type="password" name="redigite" class="form-control"><br>
     </div>
     <div class="col-md-4">CEP:
-    <input type="text" name="cep"class="form-control">
+    <input type="text" name="cep" class="form-control">
     </div>
     <div class="col-12">
     <br>Tipo de Endereço:<br>
@@ -60,16 +57,16 @@
     <input type="radio" name="tipo">  Comercial<br>
     </div>
     <div class="col-md-6">Rua:
-    <input type="text" name="rua"class="form-control"><br>
+    <input type="text" name="rua" class="form-control"><br>
     </div>
     <div class="col-md-2">N°
-    <input type="text" name="numero"class="form-control"><br>
+    <input type="text" name="numero" class="form-control"><br>
     </div>
     <div class="col-md-6">Complemento:
-    <input type="text" name="complemento"placeholder="Condominio, AP " class="form-control"><br>
+    <input type="text" name="complemento" placeholder="Condominio, AP, Bloco, Referencia... " class="form-control"><br>
     </div>
     <div class="col-md-6">Bairro:
-    <input type="text" name="bairro"class="form-control">
+    <input type="text" name="bairro" class="form-control">
     </div>
     <div class="col-md-6">
     <br>Estado<br>
@@ -105,32 +102,33 @@
     <br> <br>
     <div class="col-md-6">Cidade:
     <input type="text" name="cidade" class="form-control"> <br>
-    </div></form>
-    <input type="submit" name="btn" value="CADASTRAR">
-    <input type="hidden" name="form" value="f_form">
+    </div>
+    <div><input type="submit" name="btn" value="CADASTRAR"></div>
  </div>
 </div>
 </div>
 </div>
+</form>
     <?php 
-require_once ("conectar.php");
-if(isset($_POST['submit']) && $_POST['form'] == 'f_form')
+    require_once ("conectar.php");
+
+if(isset($_POST['submit']))
     { 
       if(
             empty ($_POST['nome'])
             or
             empty ($_POST['senha'])
             or
+            empty ($_POST['nascimento'])
+            or
             empty ($_POST['redigite'])
        )
     {
             echo"Todos os campos são obrigatórios. Confira os dados antes de finalizar o cadastro.";
-            exit;
-    } else {
-        header('Location:telainicial.php');
-    }
-    };
+    } exit;
     
+    };
+
 $email = $_POST['email'];
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
@@ -154,7 +152,15 @@ $sql = "INSERT INTO cadastros
 (email,nome,cpf,rg,nascimento,sexo,telefone,telefone2,senha,redigite,cep,tipo,rua,numero,complemento,bairro,estado,cidade)
 VALUES ('$email', '$nome', '$cpf', '$rg', '$nascimento', '$sexo', '$telefone', '$telefone2', '$senha', '$redigite', '$cep', '$tipo', '$rua','$numero', '$complemento','$bairro','$estado','$cidade')";
 mysqli_query($con, $sql);
+//no values só precisa por aspas simples, nos campos que foram definidos como varchar
 
+if(mysqli_query($conectar, $sql)){
+    echo "Usuario cadastrado com sucesso";
+}
+else{
+    echo "Erro".mysqli_connect_error($conectar);
+}
+mysqli_close($conectar); //encerra conexão com o banco
 ?>
 
 
