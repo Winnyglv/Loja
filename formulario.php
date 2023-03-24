@@ -112,7 +112,7 @@
     <?php 
     require_once ("conectar.php");
 
-if(isset($_POST['submit']))
+if(isset($_POST['submit']) && !empty($_POST['submit'])) //verifica se o botão foi clicado
     { 
       if(
             empty ($_POST['nome'])
@@ -125,10 +125,10 @@ if(isset($_POST['submit']))
        )
     {
             echo"Todos os campos são obrigatórios. Confira os dados antes de finalizar o cadastro.";
-    } exit;
+    }
     
-    };
-
+  
+//obtem os dados do formulario
 $email = $_POST['email'];
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
@@ -148,19 +148,35 @@ $bairro = $_POST['bairro'];
 $estado = $_POST['estado'];
 $cidade = $_POST['cidade'];
 
+//instrução sql de gravação no banco de dados
+
 $sql = "INSERT INTO cadastros
 (email,nome,cpf,rg,nascimento,sexo,telefone,telefone2,senha,redigite,cep,tipo,rua,numero,complemento,bairro,estado,cidade)
 VALUES ('$email', '$nome', '$cpf', '$rg', '$nascimento', '$sexo', '$telefone', '$telefone2', '$senha', '$redigite', '$cep', '$tipo', '$rua','$numero', '$complemento','$bairro','$estado','$cidade')";
-mysqli_query($con, $sql);
 //no values só precisa por aspas simples, nos campos que foram definidos como varchar
+mysqli_query($conexao, $sql); //executa a instrução sql somente se o botao for clicado
+//unset limpa os dados do formulario
+unset($_POST['email']);
+unset($_POST['nome']);
+unset($_POST['cpf']);
+unset($_POST['rg']);
+unset($_POST['nascimento']);
+unset($_POST['sexo']);
+unset($_POST['telefone']);
+unset($_POST['telefone2']);
+unset($_POST['senha']);
+unset($_POST['redigite']);
+unset($_POST['cep']);
+unset($_POST['tipo']);
+unset($_POST['rua']);
+unset($_POST['numero']);
+unset($_POST['complemento']);
+unset($_POST['bairro']);
+unset($_POST['estado']);
+unset($_POST['cidade']);
 
-if(mysqli_query($conectar, $sql)){
-    echo "Usuario cadastrado com sucesso";
-}
-else{
-    echo "Erro".mysqli_connect_error($conectar);
-}
-mysqli_close($conectar); //encerra conexão com o banco
+mysqli_close($conexao); //encerra conexão com o banco
+};
 ?>
 
 
